@@ -36,6 +36,34 @@ public class Job {
         positionType = aPositionType;
         coreCompetency = aCoreCompetency;
     }
+    @Override
+    public String toString() {
+
+        String jobString = "";
+
+        if (name == null || name.isEmpty()) {
+            name = "Data not available.";
+        }
+        if (employer.getValue().equals("") || employer.getValue() == null) {
+            employer.setValue("Data not available");
+        }
+        if (location.getValue().equals("") || location.getValue() == null) {
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue().equals("") || positionType.getValue() == null) {
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null) {
+            coreCompetency.setValue("Data not available");
+        }
+        jobString = "\n" + "ID:" + id + "\n" +
+                "Name:" + name + "\n" +
+                "Employer:" + employer + "\n" +
+                "Location:" + location + "\n" +
+                "PositionType:" + positionType + "\n" +
+                "CoreCompetency" + coreCompetency + "\n";
+        return jobString;
+    }
 
     public boolean equals(Object object) {
         if (this == object) return true;

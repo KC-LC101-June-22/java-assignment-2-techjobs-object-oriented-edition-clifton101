@@ -50,7 +50,32 @@ public class JobTest {
         assertFalse(job4.equals(job5));
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String jobString = job6.toString();
+        char nTest = '\n';
+        assertEquals(nTest, jobString.charAt(0));
+        //System.out.println(jobString.charAt(jobString.length()-1));
+        assertEquals(nTest, jobString.charAt(jobString.length()-1));
+    }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String list7 = "\n" + "ID:" + job7.getId() + "\n" +
+                "Name:" + job7.getName() + "\n" +
+                "Employer:" + job7.getEmployer() + "\n" +
+                "Location:" + job7.getLocation() + "\n" +
+                "PositionType:" + job7.getPositionType() + "\n" +
+                "CoreCompetency" + job7.getCoreCompetency() + "\n";
+        assertEquals(list7, job7.toString());
+    }
 
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+    }
 
 }
