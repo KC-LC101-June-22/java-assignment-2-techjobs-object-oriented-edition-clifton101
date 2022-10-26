@@ -6,10 +6,8 @@ import org.junit.runners.JUnit4;
 
 import org.launchcode.techjobs.oo.*;
 // took corecompetency off and added *
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertEquals;
 //had to added import static for all assert declared above.
 
 /**
@@ -18,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(JUnit4.class)
 public class JobTest {
     public JobTest(){
-        return JobTest;
+  //      return JobTest;
     }
 
     @Test
@@ -30,14 +28,26 @@ public class JobTest {
 
     @Test
     public void testJobConstructorSetsAllFields(){
-        Job Job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(Job3.getString() instanceof String);
-        assertTrue(Job3.getEmployer() instanceof Employer);
-        assertTrue(Job3.getLocation() instanceof Location);
-        assertTrue(Job3.getPositionType() instanceof PositionType);
-        assertTrue(Job3.getCoreCompetency() instanceof CoreCompetency);
+        Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(job3.getName() instanceof String);
+        assertTrue(job3.getEmployer() instanceof Employer);
+        assertTrue(job3.getLocation() instanceof Location);
+        assertTrue(job3.getPositionType() instanceof PositionType);
+        assertTrue(job3.getCoreCompetency() instanceof CoreCompetency);
 
-        assertEquals()
+        assertEquals("Product tester", job3.getName());
+        assertEquals("ACME", job3.getEmployer().getValue());
+        assertEquals("Desert", job3.getLocation().getValue());
+        assertEquals("Quality control", job3.getPositionType().getValue());
+        assertEquals("Persistence", job3.getCoreCompetency().getValue());
+
+    }
+
+    @Test
+    public void testJobsForEquality() {
+        Job job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(job4.equals(job5));
     }
 
 
