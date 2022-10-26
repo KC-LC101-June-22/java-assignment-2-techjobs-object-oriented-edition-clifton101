@@ -48,5 +48,9 @@ public abstract class JobField {
     public int hashCode() {
         return Objects.hash(id, value);
     }
+
+    public long getId() {
+        return id;
+    }
 }
 
