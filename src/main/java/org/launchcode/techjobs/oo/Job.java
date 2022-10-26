@@ -44,24 +44,24 @@ public class Job {
         if (name == null || name.isEmpty()) {
             name = "Data not available.";
         }
-        if (employer.getValue().equals("") || employer.getValue() == null) {
-            employer.setValue("Data not available");
+        if (employer == null || employer.getValue() == "" ) {
+            employer.setValue(name);
         }
-        if (location.getValue().equals("") || location.getValue() == null) {
-            location.setValue("Data not available");
+        if (location.getValue().equals("") || location == null) {
+            location.setValue(name);
         }
-        if (positionType.getValue().equals("") || positionType.getValue() == null) {
-            positionType.setValue("Data not available");
+        if (positionType.getValue().equals("") || positionType  == null) {
+            positionType.setValue(name);
         }
-        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null) {
-            coreCompetency.setValue("Data not available");
+        if (coreCompetency.getValue().equals("") || coreCompetency  == null) {
+            coreCompetency.setValue(name);
         }
-        jobString = "\n" + "ID:" + id + "\n" +
-                "Name:" + name + "\n" +
-                "Employer:" + employer + "\n" +
-                "Location:" + location + "\n" +
-                "PositionType:" + positionType + "\n" +
-                "CoreCompetency" + coreCompetency + "\n";
+        jobString = "\n" + "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "PositionType: " + positionType + "\n" +
+                "CoreCompetency: " + coreCompetency + "\n";
         return jobString;
     }
 

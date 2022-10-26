@@ -63,19 +63,25 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job job7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String list7 = "\n" + "ID:" + job7.getId() + "\n" +
-                "Name:" + job7.getName() + "\n" +
-                "Employer:" + job7.getEmployer() + "\n" +
-                "Location:" + job7.getLocation() + "\n" +
-                "PositionType:" + job7.getPositionType() + "\n" +
-                "CoreCompetency" + job7.getCoreCompetency() + "\n";
+        String list7 = "\n" + "ID: " + job7.getId() + "\n" +
+                "Name: " + job7.getName() + "\n" +
+                "Employer: " + job7.getEmployer() + "\n" +
+                "Location: " + job7.getLocation() + "\n" +
+                "PositionType: " + job7.getPositionType() + "\n" +
+                "CoreCompetency: " + job7.getCoreCompetency() + "\n";
         assertEquals(list7, job7.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-
+        Job job8 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String list8 = "\n" + "ID: " + job8.getId() + "\n" +
+                "Name: " + job8.getName() + "\n" +
+                "Employer: " + job8.getEmployer() + "\n" +
+                "Location: " + job8.getLocation() + "\n" +
+                "PositionType: " + job8.getPositionType() + "\n" +
+                "CoreCompetency: " + job8.getCoreCompetency() + "\n";
+        assertEquals(list8, job8.toString());
     }
 
 }
