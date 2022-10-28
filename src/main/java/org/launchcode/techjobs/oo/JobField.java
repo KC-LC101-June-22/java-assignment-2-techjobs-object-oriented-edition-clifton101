@@ -10,14 +10,14 @@ public abstract class JobField {
     private static int nextId;
 
     public JobField() {
-        this.id = nextId;
+        id = nextId;
         nextId++;
     }
 
     public JobField(String value) {
+        this();
         this.value = value;
     }
-
 
     public String getValue() {
         return value;
@@ -27,9 +27,9 @@ public abstract class JobField {
         this.value = value;
     }
 
-    public static int getNextId() {
-        return nextId;
-    }
+    //public static int getNextId() {
+       // return nextId;
+   // }
 
     @Override
     public String toString() {
@@ -44,10 +44,15 @@ public abstract class JobField {
         return id == jobField.id && Objects.equals(value, jobField.value);
     }
 
-    @Override
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, value);
+//    }
+
     public int hashCode() {
-        return Objects.hash(id, value);
+        return Objects.hash(id);
     }
+
 
     public long getId() {
         return id;
