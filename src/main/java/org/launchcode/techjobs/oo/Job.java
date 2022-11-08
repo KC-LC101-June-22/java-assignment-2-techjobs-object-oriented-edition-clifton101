@@ -65,16 +65,17 @@ public class Job {
         return jobString;
     }
 
+    @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
         Job job = (Job) object;
         return id == job.id;
     }
 
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), id);
+        return Objects.hash(id);
     }
 
     public String getName() {

@@ -7,7 +7,7 @@ public abstract class JobField {
 
     private String value;
 
-    private static int nextId;
+    private static int nextId = 1;
 
     public JobField() {
         id = nextId;
@@ -53,9 +53,7 @@ public abstract class JobField {
         return Objects.hash(id);
     }
 
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 }
-
