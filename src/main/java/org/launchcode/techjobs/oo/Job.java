@@ -22,4 +22,119 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
+
+    public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
+        this();
+        name = aName;
+        employer = aEmployer;
+        location = aLocation;
+        positionType = aPositionType;
+        coreCompetency = aCoreCompetency;
+    }
+    @Override
+    public String toString() {
+
+        String jobString = "";
+
+        if (name == null || name.isEmpty()) {
+            name = "Data not available.";
+        }
+        if (employer.getValue().equals("") || employer == null)  {
+            employer.setValue("Data not available");
+        }
+        if (location.getValue().equals("") || location == null) {
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue().equals("") || positionType  == null) {
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue().equals("") || coreCompetency  == null) {
+            coreCompetency.setValue("Data not available");
+        }
+        jobString = "\n" + "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
+        return jobString;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Job job = (Job) object;
+        return id == job.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public String getName() {
+        if (name == null || name.isEmpty()){
+            return "Data not available.";
+        }
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
+
+    //    @Override
+//    public boolean equals(Object o){
+//        if (this == o) return true;
+//        if (!(o instanceof Job)) return false;
+//        Job job = (Job) o;
+//        return id == job.id;
+//    }
+//    @Override
+//    public int hashCode() {return Objects.hash(id);}
+
 }
